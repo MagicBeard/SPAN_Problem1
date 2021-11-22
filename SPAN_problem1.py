@@ -61,6 +61,6 @@ line_count2 = len(df3)
 for i in range (len(df3)):
     df3.iloc[i, 0] = str(i+1) + ". " + str(df3.iloc[i, 0])
 
-#Output:
+#Output file:
 df3.to_csv(dir_path + "\\" + 'OutputFile.csv', sep = ',', header = False, index = False)
 print ('The results have been saved in an output file in the same directory as the input file.')
