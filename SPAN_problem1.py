@@ -1,13 +1,25 @@
 import os
+import platform
 import pandas as pd
 
-#Retrieve path:
+#Retrieve path and test os type:
 dir_path = os.path.dirname(os.path.realpath(__file__))
+os_name = platform.system()
 
 #Ask user for input file name:
 print ("Please make sure the input file is in the same directory as this script.")
-print ("Enter the input text file name with extension:")
-inputFilePath = dir_path + "\\" + input()
+
+if os_name == 'Windows':
+    print ("Enter the input text file name with extension:")
+    inputFilePath = dir_path + "\\" + input()
+
+elif os_name == 'Linux' or os_name == 'macOS':
+    print ("Enter the input text file name with extension:")
+    inputFilePath = dir_path + "/" + input()
+
+else:
+    print ("Please enter the exact location of the input file on the local machine:")
+    inputFilePath = input()
 
 #Opening txt file:
 
