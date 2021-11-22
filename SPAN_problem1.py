@@ -5,6 +5,7 @@ import pandas as pd
 #Retrieve path and test os type:
 dir_path = os.path.dirname(os.path.realpath(__file__))
 os_name = platform.system()
+print (os_name)
 
 #Ask user for input file name:
 print ("Please make sure the input file is in the same directory as this script.")
