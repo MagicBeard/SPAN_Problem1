@@ -5,7 +5,6 @@ import pandas as pd
 #Retrieve path and test os type:
 dir_path = os.path.dirname(os.path.realpath(__file__))
 os_name = platform.system()
-print (os_name)
 
 #Ask user for input file name:
 print ("Please make sure the input file is in the same directory as this script.")
@@ -14,7 +13,7 @@ if os_name == 'Windows':
     print ("Enter the input text file name with extension:")
     inputFilePath = dir_path + "\\" + input()
 
-elif os_name == 'Linux' or os_name == 'macOS':
+elif os_name == 'Linux' or os_name == 'macOS' or os_name == 'Darwin':
     print ("Enter the input text file name with extension:")
     inputFilePath = dir_path + "/" + input()
 
@@ -78,7 +77,7 @@ for i in range (len(df3)):
 if os_name == 'Windows':
     df3.to_csv(dir_path + "\\" + 'OutputFile.csv', sep = ',', header = False, index = False)
 
-elif os_name == 'Linux' or os_name == 'macOS':
+elif os_name == 'Linux' or os_name == 'macOS' or os_name == 'Darwin':
     df3.to_csv(dir_path + "/" + 'OutputFile.csv', sep = ',', header = False, index = False)
 
 else:
