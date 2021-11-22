@@ -43,12 +43,15 @@ df2 = pd.DataFrame(columns = ['Team Name', 'Points'])
 for i in range(line_count):
     if df.at[i, "Team 1 score"] > df.at[i, "Team 2 score"]:
         entry1 = {'Team Name': df.at[i, "Team name 1"], 'Points': 3}
+        entry2 = {'Team Name': df.at[i, "Team name 2"], 'Points': 0}
         df2 = df2.append(entry1, ignore_index = True)
-        
+        df2 = df2.append(entry2, ignore_index = True)
 
     elif df.at[i, "Team 1 score"] < df.at[i, "Team 2 score"]:
         entry1 = {'Team Name': df.at[i, "Team name 2"], 'Points': 3}
+        entry2 = {'Team Name': df.at[i, "Team name 1"], 'Points': 0}
         df2 = df2.append(entry1, ignore_index = True)
+        df2 = df2.append(entry2, ignore_index = True)
 
     elif df.at[i, "Team 1 score"] == df.at[i, "Team 2 score"]:
         entry1 = {'Team Name': df.at[i, "Team name 1"], 'Points': 1}
