@@ -74,5 +74,15 @@ for i in range (len(df3)):
     df3.iloc[i, 0] = str(i+1) + ". " + str(df3.iloc[i, 0])
 
 #Output file:
-df3.to_csv(dir_path + "\\" + 'OutputFile.csv', sep = ',', header = False, index = False)
+if os_name == 'Windows':
+    df3.to_csv(dir_path + "\\" + 'OutputFile.csv', sep = ',', header = False, index = False)
+
+elif os_name == 'Linux' or os_name == 'macOS':
+    df3.to_csv(dir_path + "/" + 'OutputFile.csv', sep = ',', header = False, index = False)
+
+else:
+    print ("Please enter the exact location you want to save the output file including the output file name:")
+    outputFilePath = input()
+    df3.to_csv(outputFilePath, sep = ',', header = False, index = False)
+
 print ('The results have been saved in an output file in the same directory as the input file.')
