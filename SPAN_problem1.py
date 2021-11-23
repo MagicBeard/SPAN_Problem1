@@ -22,8 +22,7 @@ else:
     inputFilePath = input()
 
 #Opening txt file:
-
-df_input=pd.read_csv(inputFilePath, sep=',',header =None,names=['Line1','Line2'])
+df_input = pd.read_csv(inputFilePath, sep=',',header =None,names=['Line1','Line2'])
 
 #Ditermining number of lines:
 line_count = len(df_input)
@@ -64,15 +63,13 @@ df2['Points'] = pd.to_numeric(df2['Points'])
 #Pivot and sort the results:
 df3 = pd.pivot_table(df2, index = 'Team Name', values=['Points', 'Team Name'],aggfunc='sum',)
 df3['Team Name'] = df3.index
-df3=df3.reset_index(drop=True)
+df3 = df3.reset_index(drop=True)
 df3 = df3[['Team Name', 'Points']]
 
 df3.sort_values(['Points', 'Team Name'],ascending=[False, True], inplace= True)
-df3=df3.reset_index(drop=True)
+df3 = df3.reset_index(drop=True)
 
 #Add positions:
-line_count2 = len(df3)
-
 for i in range (len(df3)):
     df3.iloc[i, 0] = str(i+1) + ". " + str(df3.iloc[i, 0])
 
@@ -84,8 +81,8 @@ elif os_name == 'Linux' or os_name == 'macOS' or os_name == 'Darwin':
     df3.to_csv(dir_path + "/" + 'OutputFile.csv', sep = ',', header = False, index = False)
 
 else:
-    print ("Please enter the exact location you want to save the output file including the output file name:")
+    print ("Please enter the exact location you want to save the output file including the output file name and extention:")
     outputFilePath = input()
     df3.to_csv(outputFilePath, sep = ',', header = False, index = False)
 
-print ('The results have been saved in an output file in the same directory as the input file.')
+print ('The results have been saved in an output file.')
